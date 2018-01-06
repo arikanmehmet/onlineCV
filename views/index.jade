@@ -1,0 +1,14 @@
+
+
+extends layout
+
+block container
+    .container.profile
+        .span3
+            img(src='#{profile.profile.picture}')
+        .span5
+            h1  #{profile.profile.name}
+            h3  #{profile.profile.job}
+            p   #{profile.profile.description}
+
+

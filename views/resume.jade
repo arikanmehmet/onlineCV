@@ -1,0 +1,12 @@
+
+extends layout
+
+block container
+    .container.resume
+        h2  My Resume
+        h3  #{profile.resume.description}
+        .btn-center
+            a(href='#{profile.resume.file}', class='hire-me')
+                i.icon-download
+                | Download Resume
+            h2  #{profile.resume.size}

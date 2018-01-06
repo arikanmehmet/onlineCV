@@ -1,0 +1,81 @@
+
+html
+    head
+        block head
+            block meta
+                meta(charset='utf-8')
+                title= title
+                meta(name='description', content='')
+                meta(name='keywords', content='')
+                meta(name='author', content='')
+                meta(name='viewport', content='width=device-width, initial-scale=1.0')
+            block stylesheets
+                link(rel='stylesheet', href='/css/bootstrap.css')
+                link(rel='stylesheet', href='/css/style.css')
+                link(rel='stylesheet', href='/font/css/fontello.css')
+                link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700')
+                link(rel='stylesheet', href='/css/jquery.fancybox.css?v=2.1.5', media='screen')
+            block js
+                script(src='/js/jquery-1.10.1.min.js')
+                script(src='/js/jquery.fancybox.js?v=2.1.5')
+                block additionaljs
+    body
+        block header
+            .navbar
+                .navbar-inner
+                    .container
+                        a(class='btn btn-navbar', data-toogle='collapse', data-target='.nav-collapse'): span.icon-bar
+                        a(class='brand', href='/profile/#{profile.username}/index.html'):   img(width='64', height='64', src='#{profile.profile.thumbnail}')
+                        ui(class='nav nav-collapse pull-right')
+                            li
+                                a(href='/profile/#{profile.username}/index.html', class=(jadeTemplate==='index' ? 'active' : ' '))
+                                    i.icon-user
+                                    | Profile
+                            li
+                                a(href='/profile/#{profile.username}/skills.html', class=(jadeTemplate==='skills' ? 'active' : ' '))
+                                    i.icon-trophy
+                                    | Skills
+                            li
+                                a(href='/profile/#{profile.username}/work.html', class=(jadeTemplate==='work' ? 'active' : ' '))
+                                    i.icon-picture
+                                    | Works
+                            li
+                                a(href='/profile/#{profile.username}/resume.html', class=(jadeTemplate==='resume' ? 'active' : ' '))
+                                    i.icon-doc-text
+                                    | Resume
+                        .nav-collapse.collapse
+                        // Everything you want hidden at 940px or less, place within here
+        block container
+        block footer
+            .row.social
+                
+            .footer
+                .container
+                    p.pull-left
+                        
+                    p.pull-right
+                        a(href='#myModal', role='button', data-toggle='modal')
+                            i.icon-mail
+                            |CONTACT
+        block modal
+            div(id='myModal', class='modal hide fade', tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+                .modal-header
+                    button(type='button', class='close', data-dismiss='modal', aria-hidden='true')
+                        |X
+                    h3#myModalLabels
+                        i.icon-mail
+                        | Contact Me
+                .modal-body
+                    form
+                        input(type='text', placeholder='Your Name')
+                        input(type='text', placeholder='Your Email')
+                        input(type='text', placeholder='Website (Optional)')
+                        textarea(rows='3', style='width: 80%')
+                        br
+                        button(type='submit', class='btn, btn-large')
+                            i.icon-paper-plane
+                            |SUBMIT
+        block javascripts
+            script(src='/js/bootstrap.min.js')
+            script.
+                $('#myModal').modal('hidden')
